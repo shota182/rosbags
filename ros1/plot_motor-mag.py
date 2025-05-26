@@ -27,6 +27,8 @@ import matplotlib.pyplot as plt
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-30-11/2025-05-26-09-30-11_mag.csv"
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-06-44/2025-05-26-10-06-44_mag.csv"
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-25-33/2025-05-26-10-25-33_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-46-29/2025-05-26-10-46-29_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-58-34/2025-05-26-10-58-34_mag.csv"
 
 base_name = csv_file.replace("_mag.csv", "")
 

@@ -27,6 +27,8 @@ csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-19-20/2025-05-26-09-19-20_mag.cs
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-30-11/2025-05-26-09-30-11_mag.csv"
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-06-44/2025-05-26-10-06-44_mag.csv"
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-25-33/2025-05-26-10-25-33_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-46-29/2025-05-26-10-46-29_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-58-34/2025-05-26-10-58-34_mag.csv"
 
 base_name = csv_file.replace("_mag.csv", "")
 
@@ -62,7 +64,7 @@ for col in ["field.data0", "field.data2"]:
 df = df.dropna(subset=["field.data0", "field.data2"])
 
 # === 移動平均(n番目のデータはn-4からn+4番目のデータの平均値) ===
-# df["field.data0"] = df["field.data0"].rolling(window=10, center=True).mean()
+df["field.data0"] = df["field.data0"].rolling(window=10, center=True).mean()
 # df["field.data2"] = df["field.data2"].rolling(window=10, center=True).mean()
 
 # --- --- ---

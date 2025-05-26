@@ -856,6 +856,78 @@ topics:      /diagnostics                      225 msgs    : diagnostic_msgs/Dia
 
 ある特定のモータステップ角での磁気センサ値がどうなるのか調べるためにとった．
 
+---
+
+## ```2025-05-26-10-46-29.bag```
+
+### ```rosbag info /home/sskr3/bags/ros1/2025-05-26-10-46-29/2025-05-26-10-46-29.bag```
+
+```
+path:        /home/sskr3/bags/ros1/2025-05-26-10-46-29/2025-05-26-10-46-29.bag
+version:     2.0
+duration:    4:40s (280s)
+start:       May 26 2025 10:46:29.54 (1748223989.54)
+end:         May 26 2025 10:51:10.34 (1748224270.34)
+size:        3.5 MB
+messages:    44034
+compression: none [5/5 chunks]
+types:       diagnostic_msgs/DiagnosticArray [60810da900de1dd6ddd437c3503511da]
+             rosgraph_msgs/Log               [acffd30cd6b6de30f120938c17c593fb]
+             sensor_msgs/Joy                 [5a9ea5f83505693b71e785041e67a8bb]
+             std_msgs/Int32MultiArray        [1d99f79f8b325b44fee908053e9c945b]
+topics:      /diagnostics                      261 msgs    : diagnostic_msgs/DiagnosticArray
+             /joy                              522 msgs    : sensor_msgs/Joy                
+             /rosout                             8 msgs    : rosgraph_msgs/Log               (2 connections)
+             /sensor/mag                      2805 msgs    : std_msgs/Int32MultiArray       
+             /sensor/motor/input/position    14028 msgs    : std_msgs/Int32MultiArray       
+             /sensor/motor/output/current    13205 msgs    : std_msgs/Int32MultiArray       
+             /sensor/motor/output/position   13205 msgs    : std_msgs/Int32MultiArray
+```
+
+### 説明
+
+* ×ばねワイヤ角度
+* ◯マニピュレータ側プーリあり
+* ◯マニピュレータワイヤ角度
+* ◯急激な動作
+
+調査のため一応．
+
+## ```2025-05-26-10-58-34.bag```
+
+### ```rosbag info /home/sskr3/bags/ros1/2025-05-26-10-58-34/2025-05-26-10-58-34.bag```
+
+```
+path:        /home/sskr3/bags/ros1/2025-05-26-10-58-34/2025-05-26-10-58-34.bag
+version:     2.0
+duration:    5:47s (347s)
+start:       May 26 2025 10:58:34.47 (1748224714.47)
+end:         May 26 2025 11:04:21.55 (1748225061.55)
+size:        4.4 MB
+messages:    54616
+compression: none [6/6 chunks]
+types:       diagnostic_msgs/DiagnosticArray [60810da900de1dd6ddd437c3503511da]
+             rosgraph_msgs/Log               [acffd30cd6b6de30f120938c17c593fb]
+             sensor_msgs/Joy                 [5a9ea5f83505693b71e785041e67a8bb]
+             std_msgs/Int32MultiArray        [1d99f79f8b325b44fee908053e9c945b]
+topics:      /diagnostics                      321 msgs    : diagnostic_msgs/DiagnosticArray
+             /joy                              829 msgs    : sensor_msgs/Joy                
+             /rosout                             8 msgs    : rosgraph_msgs/Log               (2 connections)
+             /sensor/mag                      3468 msgs    : std_msgs/Int32MultiArray       
+             /sensor/motor/input/position    17342 msgs    : std_msgs/Int32MultiArray       
+             /sensor/motor/output/current    16324 msgs    : std_msgs/Int32MultiArray       
+             /sensor/motor/output/position   16324 msgs    : std_msgs/Int32MultiArray
+```
+
+### 説明
+
+* ◯ばねワイヤ角度
+* ×マニピュレータ側プーリあり
+* ◯マニピュレータワイヤ角度
+* ◯急激な動作
+
+これも調査のため一応．
+速度は一般(200[step/sec])だが急激変化の現象が現れている．
 
 ---
 ---
