@@ -25,6 +25,8 @@ import matplotlib.pyplot as plt
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-10-39/2025-05-26-09-10-39_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-19-20/2025-05-26-09-19-20_mag.csv"
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-30-11/2025-05-26-09-30-11_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-06-44/2025-05-26-10-06-44_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-25-33/2025-05-26-10-25-33_mag.csv"
 
 base_name = csv_file.replace("_mag.csv", "")
 
@@ -38,7 +40,7 @@ csv_file2 = base_name + "_motor-input.csv"
 trigger_file = base_name + "_trigger.csv"  # 例: _trigger.csv に保存されている想定
 
 start_sec = 0.0   # ← 「開始から何秒後」
-end_sec   = 300.0   # ← 「開始から何秒後」
+end_sec   = 600.0   # ← 「開始から何秒後」
 
 # === CSV 読み込み ===
 df = pd.read_csv(csv_file)

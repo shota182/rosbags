@@ -25,9 +25,11 @@ import matplotlib.pyplot as plt
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-10-39/2025-05-26-09-10-39_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-19-20/2025-05-26-09-19-20_mag.csv"
 csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-30-11/2025-05-26-09-30-11_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-06-44/2025-05-26-10-06-44_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-25-33/2025-05-26-10-25-33_mag.csv"
 
 start_sec = 0.0   # ← 「開始から何秒後」
-end_sec   = 300.0   # ← 「開始から何秒後」
+end_sec   = 600.0   # ← 「開始から何秒後」
 
 # === ボタントリガーCSVを読み込む ===
 base_name = csv_file.replace("_mag.csv", "")
@@ -52,7 +54,7 @@ for col in [f"field.{data}", "field.data2"]:
 df = df.dropna(subset=[f"field.{data}", "field.data2"])
 
 # === 移動平均(n番目のデータはn-4からn+4番目のデータの平均値) ===
-# df[f"field.{data}"] = df[f"field.{data}"].rolling(window=10, center=True).mean()
+df[f"field.{data}"] = df[f"field.{data}"].rolling(window=10, center=True).mean()
 # df["field.data2"] = df["field.data2"].rolling(window=10, center=True).mean()
 
 
