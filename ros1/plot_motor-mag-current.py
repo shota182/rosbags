@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 # csv_file = "/home/sskr3/bags/ros1/2025-05-11-17-55-37/2025-05-11-17-55-37_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-18-11-56-46_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-18-11-57-21_mag.csv"
-# csv_file = "/home/sskr3/bags/ros1/2025-05-18-12-16-11_mag.csv"
+csv_file = "/home/sskr3/bags/ros1/2025-05-18-12-16-11/2025-05-18-12-16-11_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-18-13-40-12_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-18-14-05-19_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-18-14-29-33_mag.csv"
@@ -23,12 +23,12 @@ import matplotlib.pyplot as plt
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-08-32-51/2025-05-26-08-32-51_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-08-55-23/2025-05-26-08-55-23_mag.csv"
 # csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-10-39/2025-05-26-09-10-39_mag.csv"
-csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-19-20/2025-05-26-09-19-20_mag.csv"
-csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-30-11/2025-05-26-09-30-11_mag.csv"
-csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-06-44/2025-05-26-10-06-44_mag.csv"
-csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-25-33/2025-05-26-10-25-33_mag.csv"
-csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-46-29/2025-05-26-10-46-29_mag.csv"
-csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-58-34/2025-05-26-10-58-34_mag.csv"
+# csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-19-20/2025-05-26-09-19-20_mag.csv"
+# csv_file = "/home/sskr3/bags/ros1/2025-05-26-09-30-11/2025-05-26-09-30-11_mag.csv"
+# csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-06-44/2025-05-26-10-06-44_mag.csv"
+# csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-25-33/2025-05-26-10-25-33_mag.csv"
+# csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-46-29/2025-05-26-10-46-29_mag.csv"
+# csv_file = "/home/sskr3/bags/ros1/2025-05-26-10-58-34/2025-05-26-10-58-34_mag.csv"
 
 base_name = csv_file.replace("_mag.csv", "")
 
