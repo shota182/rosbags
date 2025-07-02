@@ -19,12 +19,13 @@ def plot_csv_data(csv_file, start_sec=0.0, end_sec=None, gradient_threshold=10.0
 
     colorlist = ["red", "blue", "green", "orange", "cyan", "pink", "yellow", "lime"]
 
+    direction = [-1, -1, 1, 1, -1, -1, 1, 1]
     # ノイズを検出して補間
     c = 0
     for col in df.columns:
         if col.startswith("field.data"):
-            # data_raw = df_range[col].to_numpy()
-            data_raw = df_range[col].to_numpy() - df[col].iloc[0]  # 相対値に変換
+            data_raw = df_range[col].to_numpy()
+            # data_raw = direction[c] * (df_range[col].to_numpy() - df[col].iloc[0])  # 相対値に変換
 
             # 変化率を計算
             gradients = np.abs(np.diff(data_raw))
@@ -55,11 +56,11 @@ def plot_csv_data(csv_file, start_sec=0.0, end_sec=None, gradient_threshold=10.0
     plt.show()
 
 # 入力CSVファイル
-input_csv = "/home/sskr3/bags/ros1/2025-06-28-20-01-56_f.csv"
+input_csv = "/home/sskr3/bags/ros1/2025-07-02-16-13-52_f.csv"
 
 # 時刻範囲を指定 (相対秒単位)
-start_sec = 70.0  # 開始時刻（相対秒）
-end_sec = 80.0    # 終了時刻（相対秒）
+start_sec = 0.00  # 開始時刻（相対秒）
+end_sec = 50.00    # 終了時刻（相対秒）
 
 # プロット
 plot_csv_data(input_csv, start_sec, end_sec, gradient_threshold=10.0)
