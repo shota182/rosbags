@@ -81,8 +81,8 @@ def plot_csv_data(csv_file1, csv_file2, start_sec=0.0, end_sec=None, gradient_th
     plt.show()
 
 # 入力CSVファイル
-input_csv1 = "/home/sskr3/bags/ros1/2025-07-02-12-14-17_f.csv"
-input_csv2 = "/home/sskr3/bags/ros1/2025-07-02-12-14-17_opos.csv"
+input_csv1 = "/home/sskr3/bags/ros1/2025-07-12-15-27-54/2025-07-12-15-27-54.bag_ipos.csv"
+input_csv2 = "/home/sskr3/bags/ros1/2025-07-12-15-27-54/2025-07-12-15-27-54.bag_opos.csv"
 
 # 時刻範囲を指定 (相対秒単位)
 start_sec = 0.00  # 開始時刻（相対秒）

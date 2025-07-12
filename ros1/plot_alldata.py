@@ -18,33 +18,35 @@ def plot_csv_data(csv_file, start_sec=0.0, end_sec=None, gradient_threshold=10.0
     df_range = df[(df["relative_time"] >= start_sec) & (df["relative_time"] <= end_sec)]
 
     colorlist = ["red", "blue", "green", "orange", "cyan", "pink", "yellow", "lime"]
+    # colorlist = ["cyan", "pink", "yellow", "lime", "red", "blue", "green", "orange"]
 
     direction = [-1, -1, 1, 1, -1, -1, 1, 1]
     # ノイズを検出して補間
     c = 0
     for col in df.columns:
         if col.startswith("field.data"):
-            data_raw = df_range[col].to_numpy()
+            # data_raw = df_range[col].to_numpy()
+            data_raw = df_range[col].to_numpy() - df[col].iloc[0]  # 相対値に変換
             # data_raw = direction[c] * (df_range[col].to_numpy() - df[col].iloc[0])  # 相対値に変換
 
             # 変化率を計算
-            gradients = np.abs(np.diff(data_raw))
+            # gradients = np.abs(np.diff(data_raw))
 
-            # ノイズを検出 (変化率が閾値を超える場合)
-            outliers = gradients > gradient_threshold
+            # # ノイズを検出 (変化率が閾値を超える場合)
+            # outliers = gradients > gradient_threshold
 
-            # ノイズのインデックスを取得
-            outlier_indices = np.where(outliers)[0] + 1  # +1で次の点をノイズとして扱う
+            # # ノイズのインデックスを取得
+            # outlier_indices = np.where(outliers)[0] + 1  # +1で次の点をノイズとして扱う
 
-            # ノイズを直線補間
-            data_raw[outlier_indices] = np.interp(
-                outlier_indices,  # ノイズのインデックス
-                np.arange(len(data_raw))[~np.isin(np.arange(len(data_raw)), outlier_indices)],  # ノイズ以外のインデックス
-                data_raw[~np.isin(np.arange(len(data_raw)), outlier_indices)]  # ノイズ以外のデータ
-            )
+            # # ノイズを直線補間
+            # data_raw[outlier_indices] = np.interp(
+            #     outlier_indices,  # ノイズのインデックス
+            #     np.arange(len(data_raw))[~np.isin(np.arange(len(data_raw)), outlier_indices)],  # ノイズ以外のインデックス
+            #     data_raw[~np.isin(np.arange(len(data_raw)), outlier_indices)]  # ノイズ以外のデータ
+            # )
 
             # プロット
-            plt.plot(df_range["relative_time"].to_numpy(), data_raw, label=col, color=colorlist[c])
+            plt.plot(df_range["relative_time"].to_numpy(), data_raw, label=col, color=colorlist[c], lw=0.5)
             c += 1
 
     plt.xlabel("Relative Time (seconds)", fontsize=14)
@@ -56,7 +58,7 @@ def plot_csv_data(csv_file, start_sec=0.0, end_sec=None, gradient_threshold=10.0
     plt.show()
 
 # 入力CSVファイル
-input_csv = "/home/sskr3/bags/ros1/2025-07-02-16-13-52_f.csv"
+input_csv = "/home/sskr3/bags/ros1/2025-07-13-00-08-57/2025-07-13-00-08-57.bag_opos.csv"
 
 # 時刻範囲を指定 (相対秒単位)
 start_sec = 0.00  # 開始時刻（相対秒）
