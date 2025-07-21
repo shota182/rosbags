@@ -52,12 +52,19 @@ def plot_csv_data(csv_file1, csv_file2, start_sec=0.0, end_sec=None, relative=Tr
     plt.show()
 
 # 入力CSVファイル
-input_csv1 = "/home/sskr3/bags/ros1/2025-07-12-19-14-09/2025-07-12-19-14-09.bag_ipos.csv"
-input_csv2 = "/home/sskr3/bags/ros1/2025-07-12-19-14-09/2025-07-12-19-14-09.bag_opos.csv"
+## joy差分確認
+input_csv1 = "/home/sskr3/bags/ros1/2025-07-12-15-27-54/2025-07-12-15-27-54.bag_ipos.csv"
+input_csv2 = "/home/sskr3/bags/ros1/2025-07-12-15-27-54/2025-07-12-15-27-54.bag_opos.csv"
+## joy差分PIゲイン調整後
+# input_csv1 = "/home/sskr3/bags/ros1/2025-07-12-18-36-16/2025-07-12-18-36-16.bag_ipos.csv"
+# input_csv2 = "/home/sskr3/bags/ros1/2025-07-12-18-36-16/2025-07-12-18-36-16.bag_opos.csv"
+input_csv1 = "/home/sskr3/bags/ros1/2025-07-12-16-41-05/2025-07-12-16-41-05.bag_ipos.csv"
+input_csv2 = "/home/sskr3/bags/ros1/2025-07-12-16-41-05/2025-07-12-16-41-05.bag_opos.csv"
+
 
 # 時刻範囲を指定 (相対秒単位)
 start_sec = 0.00  # 開始時刻（相対秒）
-end_sec = 100.00   # 終了時刻（相対秒）
+end_sec = 50.00   # 終了時刻（相対秒）
 
 # 相対値を使用するかどうか
 relative = True
