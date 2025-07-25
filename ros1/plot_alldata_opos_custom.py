@@ -19,6 +19,7 @@ def plot_csv_data(csv_file, start_sec=0.0, end_sec=None, gradient_threshold=10.0
     df_range = df[(df["relative_time"] >= start_sec) & (df["relative_time"] <= end_sec)]
 
     colorlist = ["red", "blue", "green", "orange", "cyan", "pink", "yellow", "lime"]
+    colorlist = ["salmon", "red", "blue", "orange", "pink", "steelblue", "yellow", "cyan"]
     colorlist = ["green", "red", "blue", "orange", "pink", "lime", "yellow", "cyan"]
     # colorlist = ["cyan", "pink", "yellow", "lime", "red", "blue", "green", "orange"]
 
@@ -61,30 +62,31 @@ def plot_csv_data(csv_file, start_sec=0.0, end_sec=None, gradient_threshold=10.0
     # print(one_isbig)
     
     # プロット
-    plt.plot(df_range["relative_time"].to_numpy(), data_raw[1], label=r"$\theta_{leader}$", color=colorlist[1], lw=6)
-    plt.plot(df_range["relative_time"].to_numpy(), data_raw[4], label=r"$\theta_{follower}$", color=colorlist[4], lw=5)
-    plt.plot(df_range["relative_time"].to_numpy(), data_raw[2], label=r"$\phi_{leader}$", color=colorlist[2], lw=6)
-    plt.plot(df_range["relative_time"].to_numpy(), data_raw[7], label=r"$\phi_{follower}$", color=colorlist[7], lw=5)
+    plt.plot(df_range["relative_time"].to_numpy(), data_raw[2], label=r"$\theta_{l}$", color=colorlist[1], lw=15)
+    plt.plot(df_range["relative_time"].to_numpy(), data_raw[7], label=r"$\theta_{f}$", color=colorlist[4], lw=10)
+    plt.plot(df_range["relative_time"].to_numpy(), data_raw[1], label=r"$\phi_{l}$", color=colorlist[2], lw=15)
+    plt.plot(df_range["relative_time"].to_numpy(), data_raw[4], label=r"$\phi_{f}$", color=colorlist[7], lw=10)
     ## 誤差
-    plt.plot(df_range["relative_time"].to_numpy(), data_raw[1]-data_raw[4], label=r"$\theta_{error}$", color=colorlist[0], lw=5)
-    plt.plot(df_range["relative_time"].to_numpy(), data_raw[2]-data_raw[7], label=r"$\phi_{error}$", color=colorlist[5], lw=5)
+    plt.plot(df_range["relative_time"].to_numpy(), data_raw[2]-data_raw[7], label=r"$\theta_{l}-\theta_{f}$", color=colorlist[0], lw=10)
+    plt.plot(df_range["relative_time"].to_numpy(), data_raw[1]-data_raw[4], label=r"$\phi_{l}-\phi_{f}$", color=colorlist[5], lw=10)
     ## どっちがでかいか
     # plt.plot(df_range["relative_time"].to_numpy(), one_isbig, label=r"$\phi_{isbig}$", color=colorlist[6], lw=5)
     ## ストライプ
-    plt.axvspan(0,                                           df_range["relative_time"].to_numpy()[11094],facecolor="lightcyan", alpha=0.4, zorder=-1)
-    plt.axvspan(df_range["relative_time"].to_numpy()[11094], df_range["relative_time"].to_numpy()[19937],facecolor="mistyrose", alpha=0.4, zorder=-1)
-    plt.axvspan(df_range["relative_time"].to_numpy()[19937], df_range["relative_time"].to_numpy()[26485],facecolor="lightcyan", alpha=0.4, zorder=-1)
-    plt.axvspan(df_range["relative_time"].to_numpy()[26485], df_range["relative_time"].to_numpy()[32319],facecolor="mistyrose", alpha=0.4, zorder=-1)
-    plt.axvspan(df_range["relative_time"].to_numpy()[32319], df_range["relative_time"].to_numpy()[37658],facecolor="lightcyan", alpha=0.4, zorder=-1)
-    plt.axvspan(df_range["relative_time"].to_numpy()[37658], df_range["relative_time"].to_numpy()[-1],   facecolor="mistyrose", alpha=0.4, zorder=-1)
+    # plt.axvspan(0,                                           df_range["relative_time"].to_numpy()[11094],facecolor="lightcyan", alpha=0.4, zorder=-1)
+    # plt.axvspan(df_range["relative_time"].to_numpy()[11094], df_range["relative_time"].to_numpy()[19937],facecolor="mistyrose", alpha=0.4, zorder=-1)
+    # plt.axvspan(df_range["relative_time"].to_numpy()[19937], df_range["relative_time"].to_numpy()[26485],facecolor="lightcyan", alpha=0.4, zorder=-1)
+    # plt.axvspan(df_range["relative_time"].to_numpy()[26485], df_range["relative_time"].to_numpy()[32319],facecolor="mistyrose", alpha=0.4, zorder=-1)
+    # plt.axvspan(df_range["relative_time"].to_numpy()[32319], df_range["relative_time"].to_numpy()[37658],facecolor="lightcyan", alpha=0.4, zorder=-1)
+    # plt.axvspan(df_range["relative_time"].to_numpy()[37658], df_range["relative_time"].to_numpy()[-1],   facecolor="mistyrose", alpha=0.4, zorder=-1)
 
-    plt.xlabel("Time [sec]", fontsize=40)
-    plt.ylabel("Pulley Rotation Angle [rad]", fontsize=40)
+    plt.xlabel("時間 [sec]", fontsize=80)
+    plt.ylabel("モータ回転角 [rad]", fontsize=80)
     plt.xlim([0, 90])  # Y軸の範囲を設定
+    plt.xticks([0, 30, 60, 90], fontsize=60)
     plt.ylim([-6, 6])  # Y軸の範囲を設定
     # plt.title(f"Data Plot from {start_sec}s to {end_sec}s", fontsize=16)
-    plt.tick_params(axis='both', labelsize=35)
-    plt.legend(fontsize=40)
+    plt.tick_params(axis='both', labelsize=60, pad=20)
+    # plt.legend(fontsize=60, loc='center left', bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
     plt.grid()
     plt.show()
 
