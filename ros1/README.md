@@ -1467,3 +1467,27 @@ P5.0でおかしくなった
 こっち使う
 
 * 2025-07-24-12-51-52.bag
+
+## 復元力取る用
+
+### フォロワ側s
+
+* 2025-08-03-16-01-24.bag
+
+* 2025-08-03-16-09-00.bag
+
+### 実行
+
+* /home/sskr3/bags/ros1/resilience/opos_relative.py
+oposファイルを引数にすることで相対値を計算
+
+* /home/sskr3/bags/ros1/resilience/opos_id_pick.py
+opos_relativeを引数にすることで，内部のデータを抽出．
+実際は指定した２つの数字を比較して，絶対値が大きいときの行に分割．
+
+* /home/sskr3/bags/ros1/resilience/opos_force_mapping.py
+data2_greater.csvとfを引数にすることでf側を線形補間してcsvに格納．
+現状data{n}を内部で指定しないといけない
+
+* /home/sskr3/bags/ros1/resilience/opos_force_plot.py
+mappedのcsvをプロット
