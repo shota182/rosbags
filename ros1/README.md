@@ -1476,18 +1476,53 @@ P5.0でおかしくなった
 
 * 2025-08-03-16-09-00.bag
 
-### 実行
+* 2025-08-04-11-13-44.bag
 
-* /home/sskr3/bags/ros1/resilience/opos_relative.py
+* 2025-08-04-11-37-00.bag
+
+* 2025-08-04-12-16-49.bag
+
+### 引っ張り量と力の関係の実行
+
+* resilience/opos_relative.py
 oposファイルを引数にすることで相対値を計算
 
-* /home/sskr3/bags/ros1/resilience/opos_id_pick.py
+* resilience/opos_id_pick.py
 opos_relativeを引数にすることで，内部のデータを抽出．
-実際は指定した２つの数字を比較して，絶対値が大きいときの行に分割．
+実際は指定した２つの数字を比較して，大きいときの行に分割．
 
-* /home/sskr3/bags/ros1/resilience/opos_force_mapping.py
+* resilience/opos_force_mapping.py
 data2_greater.csvとfを引数にすることでf側を線形補間してcsvに格納．
-現状data{n}を内部で指定しないといけない
 
-* /home/sskr3/bags/ros1/resilience/opos_force_plot.py
+* resilience/opos_force_plot.py
 mappedのcsvをプロット
+
+* resilience/cluster_kmeans.py
+cluster_inputに含まれるすべてのcsvから2つのクラスタに分割する
+clusteredに格納
+
+* resilience/generate_curve.py
+clusteredに含まれる２つのcluster_*.csvそれぞれで近似曲線を生成してマップを格納
+fit_csvに格納
+
+### 引っ張り量の左右の関係の実行
+
+* 250825_opos-relative/0_pick_opos-relative.py
+oposファイルとデータ番号2つを引数として相対値のcsvファイルに整形
+
+* 250825_opos-relative/1_grouping_opos-state.py
+上で作成したcsvファイルから状態と変化に基づく4状態に分類してプロット，正+増加と負+減少の2状態を抜き出してcsvファイルに格納
+
+* 250825_opos-relative/2_plot_opos-relative2.py
+csvファイルのdataの2次元プロットを表示
+
+### 変更版
+
+* 250825_opos-relative/01_set.py
+0と1のファイルを連続して実行
+形式
+```python3 01_set.py /home/sskr3/bags/ros1/2025-08-03-16-01-24/2025-08-03-16-01-24.bag_opos.csv --data 2 3```
+
+* 250825_opos-relative/2_plot_opos-relative_multiple.py
+複数のcsvファイルが入ったディレクトリを引数として指定することで1figureにプロット+保存
+input-2ディレクトリの中のディレクトリを指定して実行する

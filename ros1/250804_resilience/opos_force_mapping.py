@@ -62,7 +62,7 @@ if __name__ == "__main__":
         print("指定されたCSVファイルが存在しません。")
         sys.exit(1)
 
-    data_column = "field.data3"
+    data_column = f"field.data{csv_path1[-13:-12]}"
 
     output_csv_path = os.path.join(os.path.dirname(csv_path1), f"mapped_interpolated-{data_column}.csv")
     map_and_interpolate(csv_path1, csv_path2, output_csv_path)
